@@ -3,11 +3,15 @@ import { parse } from "url";
 import { ParsedRequest } from "./types";
 
 const getDefault = (value: string, defaultValue: string): string => {
-  return value ? value : defaultValue;
+  if (typeof value === "string" || value === undefined) {
+    return value ? value : defaultValue;
+  } else {
+    throw new Error("Invalid parameter");
+  }
 };
 
 export function parseRequest(req: IncomingMessage) {
-  const { pathname, query } = parse(req.url || "/", true);
+  const { query } = parse(req.url || "/", true);
   const {
     title,
     subtitle,
@@ -20,11 +24,7 @@ export function parseRequest(req: IncomingMessage) {
     height,
   } = query || {};
 
-  const arr = (pathname || "/").slice(1).split(".");
-  let extension = arr.pop() as string;
-
   const parsedRequest: ParsedRequest = {
-    fileType: extension === "jpeg" ? extension : "png",
     title: getDefault(title as string, "Title"),
     subtitle: getDefault(subtitle as string, "subtitle"),
     naturalStat: getDefault(naturalStat as string, "0"),

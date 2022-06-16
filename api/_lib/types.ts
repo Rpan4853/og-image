@@ -1,7 +1,6 @@
-export type FileType = "png" | "jpeg";
+export type FileType = "png" | "jpeg" | "webp";
 
 export interface ParsedRequest {
-  fileType: FileType;
   title: string;
   subtitle: string;
   naturalStat: string;
