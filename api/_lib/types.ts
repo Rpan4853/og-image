@@ -9,4 +9,6 @@ export interface ParsedRequest {
   pollutionStat: string;
   infrastructureStat: string;
   goodNewsStat: string;
+  width?: number;
+  height?: number;
 }

@@ -14,15 +14,17 @@ export const App = (props: ParsedRequest) => {
     pollutionStat,
     infrastructureStat,
     goodNewsStat,
+    width,
+    height,
   } = props;
   return (
     <ChakraProvider>
       <Flex
-        w="1200px"
-        h="630px"
+        w={width}
+        h={height}
         direction="column"
         bgGradient="linear(to-r, green.50,  blue.100)"
-        p="30px"
+        p={0.025 * (width as number)}
         justify="space-between"
       >
         <Logo width="2xs" ml="auto" />
@@ -36,11 +38,12 @@ export const App = (props: ParsedRequest) => {
           </Text>
         </Stack>
         <Flex
-          height="3xs"
+          height="20%"
           direction="row"
           align="center"
           justify="space-between"
           p="5rem"
+          mb="2rem"
         >
           {[
             naturalStat,

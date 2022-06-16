@@ -18,9 +18,15 @@ export default async function handler(
       res.end(html);
       return;
     }
-    const { fileType } = parsedReq;
+    const { fileType, width, height } = parsedReq;
 
-    const file = await getScreenshot(html, fileType, isDev);
+    const file = await getScreenshot(
+      html,
+      fileType,
+      isDev,
+      width as number,
+      height as number
+    );
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
     res.setHeader(

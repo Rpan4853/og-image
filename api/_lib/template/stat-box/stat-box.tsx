@@ -9,7 +9,6 @@ export const StatBox = (props: { stat: string }) => {
       bg="white"
       direction="column"
       width="9rem"
-      height="9rem"
       borderRadius=".75rem"
       p="1rem"
       align="center"

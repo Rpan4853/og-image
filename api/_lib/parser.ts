@@ -12,6 +12,8 @@ export function parseRequest(req: IncomingMessage) {
     pollutionStat,
     infrastructureStat,
     goodNewsStat,
+    width,
+    height,
   } = query || {};
 
   const arr = (pathname || "/").slice(1).split(".");
@@ -26,6 +28,8 @@ export function parseRequest(req: IncomingMessage) {
     pollutionStat: pollutionStat as string,
     infrastructureStat: infrastructureStat as string,
     goodNewsStat: goodNewsStat as string,
+    width: width ? parseInt(width as string) : 1200,
+    height: height ? parseInt(height as string) : 630,
   };
   return parsedRequest;
 }
