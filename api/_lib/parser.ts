@@ -19,23 +19,13 @@ export function parseRequest(req: IncomingMessage) {
 
   const parsedRequest: ParsedRequest = {
     fileType: extension === "jpeg" ? extension : "png",
-    title,
-    subtitle,
-    naturalStat,
-    industrialStat,
-    pollutionStat,
-    infrastructureStat,
-    goodNewsStat,
+    title: title as string,
+    subtitle: subtitle as string,
+    naturalStat: naturalStat as string,
+    industrialStat: industrialStat as string,
+    pollutionStat: pollutionStat as string,
+    infrastructureStat: infrastructureStat as string,
+    goodNewsStat: goodNewsStat as string,
   };
   return parsedRequest;
 }
-
-// function getArray(stringOrArray: string[] | string | undefined): string[] {
-//   if (typeof stringOrArray === "undefined") {
-//     return [];
-//   } else if (Array.isArray(stringOrArray)) {
-//     return stringOrArray;
-//   } else {
-//     return [stringOrArray];
-//   }
-// }
